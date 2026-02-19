@@ -1,11 +1,9 @@
 export default {
   async fetch(request, env) {
-    if (request.method !== "POST") {
-      return new Response("OK");
-    }
+    if (request.method !== "POST") return new Response("OK");
 
     try {
-      // ===== Получаем update =====
+      // ===== Get update from Telegram =====
       const update = await request.json();
       console.log("📩 Update received:", JSON.stringify(update));
 
@@ -18,27 +16,38 @@ export default {
 
       const roleId = env.ROLE_ID || null;
 
-      // ===== Получаем конфиги из Settings (Text -> JSON.parse) =====
-      const webhookConfig = JSON.parse(env.WEBHOOK_CONFIG || "[]");
-      const embedConfig = JSON.parse(env.EMBED_CONFIG || "{}");
+      // ===== Parse configs from Settings (Text -> JSON.parse) =====
+      let webhookConfig = [];
+      let embedConfig = {};
+      try {
+        webhookConfig = JSON.parse(env.WEBHOOK_CONFIG || "[]");
+      } catch {
+        console.log("❌ Invalid WEBHOOK_CONFIG JSON");
+        webhookConfig = [];
+      }
+      try {
+        embedConfig = JSON.parse(env.EMBED_CONFIG || "{}");
+      } catch {
+        embedConfig = {};
+      }
 
-      // ===== Проверка NoPost тегов =====
+      // ===== NoPost check =====
       const noPostTags = webhookConfig.find(w => w.name === "NoPost")?.tags || [];
       if (noPostTags.some(tag => postText.includes(tag))) {
         console.log("⛔ NoPost tag found, skipping post");
         return new Response("OK");
       }
 
-      // ===== Выбор вебхука =====
+      // ===== Select webhook =====
       let selectedWebhook = webhookConfig.find(w => {
-        if (w.name === "NoPost" || w.name === "Default") return false; // пропускаем специальные блоки
+        if (w.name === "NoPost" || w.name === "Default") return false;
         const tags = w.tags || [];
         const matchTags = tags.some(tag => postText.includes(tag));
         const matchContains = w.contains && postText.includes(w.contains);
         return matchTags || matchContains;
       });
 
-      // Если ни один блок не подошёл — берем Default
+      // Use Default if no match
       if (!selectedWebhook) {
         selectedWebhook = webhookConfig.find(w => w.name === "Default");
         if (!selectedWebhook || !selectedWebhook.webhook) {
@@ -52,38 +61,48 @@ export default {
 
       const tgMessageUrl = `https://t.me/${post.chat.username}/${post.message_id}`;
 
-      // ===== Формируем embed =====
-      let embedTitle = embedConfig.telegramTitle || "Тыкай, чтобы читать в Telegram";
+      // ===== Build embed =====
+      let embedTitle = embedConfig.telegramTitle || "Click to read in Telegram";
       let embedColor = embedConfig.telegramColor ? parseInt(embedConfig.telegramColor.replace("#", ""), 16) : 0x007BFF;
 
       if (postVideo) {
-        embedTitle = embedConfig.videoTitle || "Жмякай, чтобы посмотреть видео";
+        embedTitle = embedConfig.videoTitle || "Click to watch video";
         embedColor = embedConfig.videoColor ? parseInt(embedConfig.videoColor.replace("#", ""), 16) : 0xFF9900;
       }
 
       const embed = { title: embedTitle, url: tgMessageUrl, color: embedColor };
 
-      // ===== Формируем текст сообщения =====
-      let content = `<@&${roleId}>\n${postText}`;
+      // ===== Build mention =====
+      let mention = "";
+      const useEveryone = ["true", "1"].includes((env.USE_EVERYONE || "").toLowerCase());
+
+      if (roleId) {
+        mention = `<@&${roleId}>`;
+      } else if (useEveryone) {
+        mention = "@everyone";
+      }
+
+      // ===== Build message content =====
+      let content = `${mention}\n${postText}`;
       if (postPhotos.length > 0) content += `\n`;
 
-      // ===== Отправка фото =====
+      // ===== Send photo if exists =====
       if (postPhotos.length > 0) {
-        const photo = postPhotos[postPhotos.length - 1]; // самое крупное
+        const photo = postPhotos[postPhotos.length - 1]; // largest photo
         const fileId = photo.file_id;
-        console.log("📡 file_id:", fileId);
 
-        // Получение file_path
-        const fileInfoResp = await fetch(`https://api.telegram.org/bot${env.TG_BOT_TOKEN}/getFile?file_id=${fileId}`);
+        const fileInfoResp = await fetch(
+          `https://api.telegram.org/bot${env.TG_BOT_TOKEN}/getFile?file_id=${fileId}`
+        );
         const fileInfo = await fileInfoResp.json();
-        console.log("📄 getFile response:", fileInfo);
 
         if (!fileInfo.ok || !fileInfo.result.file_path) {
-          console.log("❌ Failed to get file_path");
-          content += "\n❌ Не удалось получить изображение";
+          content += "\n❌ Failed to get image from Telegram";
         } else {
           const filePath = fileInfo.result.file_path;
-          const fileResp = await fetch(`https://api.telegram.org/file/bot${env.TG_BOT_TOKEN}/${filePath}`);
+          const fileResp = await fetch(
+            `https://api.telegram.org/file/bot${env.TG_BOT_TOKEN}/${filePath}`
+          );
           const arrayBuffer = await fileResp.arrayBuffer();
           const blob = new Blob([arrayBuffer], { type: "image/jpeg" });
 
@@ -97,7 +116,7 @@ export default {
         }
       }
 
-      // ===== Отправка embed без фото =====
+      // ===== Send embed only if no photo =====
       await fetch(selectedWebhook.webhook, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -106,6 +125,7 @@ export default {
       console.log("✅ Embed sent to Discord");
 
       return new Response("OK");
+
     } catch (err) {
       console.error("❌ Worker error:", err);
       return new Response("Internal error", { status: 500 });
