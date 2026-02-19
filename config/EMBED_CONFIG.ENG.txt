@@ -1,0 +1,10 @@
+{
+  "telegramTitle": "Click to view on Telegram",
+  "telegramColor": "#007BFF",
+  "videoTitle": "Click to watch the video",
+  "videoColor": "#FF9900",
+
+  "configErrorTitle": "Configuration Error Detected",
+  "configErrorDescription": "WEBHOOK_CONFIG contains an error. Please verify your file using the template from the repository.",
+  "configErrorUrl": "https://github.com/your-repo/WEBHOOK_CONFIG.ENG.txt"
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "name": "NoPost",
+    "description": "NOPOST tag — skip the post",
+    "tags": ["#tgonly", "#nopost"],
+    "contains": "",
+    "webhook": ""
+  },
+  {
+    "name": "TwitchMain",
+    "description": "Post contains a link to the main Twitch channel",
+    "tags": [],
+    "contains": "https://www.twitch.tv/hrandor",
+    "webhook": "https://discord.com/api/webhooks/WEBHOOK_ID_1/WEBHOOK_TOKEN_1"
+  },
+  {
+    "name": "NewsTags",
+    "description": "Post contains news tags",
+    "tags": ["#news"],
+    "contains": "",
+    "webhook": "https://discord.com/api/webhooks/WEBHOOK_ID_2/WEBHOOK_TOKEN_2"
+  },
+  {
+    "name": "AdsTags",
+    "description": "Post contains advertising/ads tags",
+    "tags": ["#ads", "#announcement"],
+    "contains": "",
+    "webhook": "https://discord.com/api/webhooks/WEBHOOK_ID_3/WEBHOOK_TOKEN_3"
+  },
+  {
+    "name": "Default",
+    "description": "Webhook where the repost goes by default, this block MUST always be last in the list",
+    "tags": "",
+    "contains": "",
+    "webhook": "https://discord.com/api/webhooks/WEBHOOK_ID_DEFAULT/WEBHOOK_TOKEN_DEFAULT"
+  }
+]

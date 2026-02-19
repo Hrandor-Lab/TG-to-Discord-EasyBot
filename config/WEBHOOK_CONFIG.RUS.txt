@@ -1,0 +1,37 @@
+[
+  {
+    "name": "NoPost",
+    "description": "NOPOST tag — пропуск сообщения",
+    "tags": ["#tgonly", "#nopost"],
+    "contains": "",
+    "webhook": ""
+  },
+  {
+    "name": "TwitchMain",
+    "description": "Пост содержит ссылку на основной канал Twitch",
+    "tags": [],
+    "contains": "https://www.twitch.tv/hrandor",
+    "webhook": "https://discord.com/api/webhooks/1468777921333170308/czDXkV5TcyZhbmCgUZ5T1YM70KDt4Fty-q2PnsSCcgJPjuLoCVesQit4jGPxYGkJJlSd"
+  },
+  {
+    "name": "NewsTags",
+    "description": "Пост содержит тэг новости",
+    "tags": ["#новости", "#news"],
+    "contains": "",
+    "webhook": "https://discord.com/api/webhooks/1468773889541673202/S6aLSPvmCKc05MTGcutTsxLNtz2psVy-FgttUwnHGq68zMQzJBUu-MDZlEF7OCsjBbvp"
+  },
+  {
+    "name": "AdsTags",
+    "description": "Пост содержит тэг реклама/ads",
+    "tags": ["#реклама", "#анонс"],
+    "contains": "",
+    "webhook": "https://discord.com/api/webhooks/1468777921333170308/czDXkV5TcyZhbmCgUZ5T1YM70KDt4Fty-q2PnsSCcgJPjuLoCVesQit4jGPxYGkJJlSd"
+  },
+  {
+    "name": "Default",
+    "description": "Вебхук для репоста по умолчанию ВСЕГДА последний в списке",
+    "tags": "",
+    "contains": "",
+    "webhook": "https://discord.com/api/webhooks/1468773889541673202/S6aLSPvmCKc05MTGcutTsxLNtz2psVy-FgttUwnHGq68zMQzJBUu-MDZlEF7OCsjBbvp"
+  }
+]

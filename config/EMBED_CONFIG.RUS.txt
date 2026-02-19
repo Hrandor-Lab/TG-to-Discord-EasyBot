@@ -1,0 +1,10 @@
+{
+  "telegramTitle": "Тыкай, чтобы читать в Telegram",
+  "telegramColor": "#007BFF",
+  "videoTitle": "Жмякай, чтобы посмотреть видео",
+  "videoColor": "#FF9900",
+
+  "configErrorTitle": "Обнаружена ошибка конфигурации!",
+  "configErrorDescription": "В файле WEBHOOK_CONFIG допущена ошибка. Пожалуйста, сверьте его с шаблоном в репозитории.",
+  "configErrorUrl": "config/WEBHOOK_CONFIG.RUS.txt"
+}
