@@ -8,30 +8,30 @@
   },
   {
     "name": "TwitchMain",
-    "description": "Пост содержит ссылку на основной канал Twitch",
+    "description": "Пост в канал с анонсами при наличие ссылки на канал Twitch - замените на ссылку на ваш канал",
     "tags": [],
     "contains": "https://www.twitch.tv/hrandor",
-    "webhook": "https://discord.com/api/webhooks/1468777921333170308/czDXkV5TcyZhbmCgUZ5T1YM70KDt4Fty-q2PnsSCcgJPjuLoCVesQit4jGPxYGkJJlSd"
+    "webhook": "https://discord.com/api/webhooks/WEBHOOK_ID_1/WEBHOOK_TOKEN_1"
   },
   {
     "name": "NewsTags",
-    "description": "Пост содержит тэг новости",
+    "description": "Пост содержит тэг новостей",
     "tags": ["#новости", "#news"],
     "contains": "",
-    "webhook": "https://discord.com/api/webhooks/1468773889541673202/S6aLSPvmCKc05MTGcutTsxLNtz2psVy-FgttUwnHGq68zMQzJBUu-MDZlEF7OCsjBbvp"
+    "webhook": "https://discord.com/api/webhooks/WEBHOOK_ID_1/WEBHOOK_TOKEN_2"
   },
   {
     "name": "AdsTags",
-    "description": "Пост содержит тэг реклама/ads",
+    "description": "Пост в содержит тэги реклама или анонс",
     "tags": ["#реклама", "#анонс"],
     "contains": "",
-    "webhook": "https://discord.com/api/webhooks/1468777921333170308/czDXkV5TcyZhbmCgUZ5T1YM70KDt4Fty-q2PnsSCcgJPjuLoCVesQit4jGPxYGkJJlSd"
+    "webhook": "https://discord.com/api/webhooks/WEBHOOK_ID_1/WEBHOOK_TOKEN_3"
   },
   {
     "name": "Default",
     "description": "Вебхук для репоста по умолчанию ВСЕГДА последний в списке",
     "tags": "",
     "contains": "",
-    "webhook": "https://discord.com/api/webhooks/1468773889541673202/S6aLSPvmCKc05MTGcutTsxLNtz2psVy-FgttUwnHGq68zMQzJBUu-MDZlEF7OCsjBbvp"
+    "webhook": "https://discord.com/api/webhooks/WEBHOOK_ID_1/WEBHOOK_TOKEN_4"
   }
 ]

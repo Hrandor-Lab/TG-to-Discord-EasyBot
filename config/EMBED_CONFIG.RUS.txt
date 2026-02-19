@@ -6,5 +6,5 @@
 
   "configErrorTitle": "Обнаружена ошибка конфигурации!",
   "configErrorDescription": "В файле WEBHOOK_CONFIG допущена ошибка. Пожалуйста, сверьте его с шаблоном в репозитории.",
-  "configErrorUrl": "config/WEBHOOK_CONFIG.RUS.txt"
+  "configErrorUrl": "https://github.com/Hrandor-Lab/TG-to-Discord-EasyBot/blob/main/config/WEBHOOK_CONFIG.RUS.txt"
 }

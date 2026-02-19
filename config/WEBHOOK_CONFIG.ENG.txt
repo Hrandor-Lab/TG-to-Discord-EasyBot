@@ -10,7 +10,7 @@
     "name": "TwitchMain",
     "description": "Post contains a link to the main Twitch channel",
     "tags": [],
-    "contains": "https://www.twitch.tv/hrandor",
+    "contains": "https://www.twitch.tv/YOUR_CHANNEL",
     "webhook": "https://discord.com/api/webhooks/WEBHOOK_ID_1/WEBHOOK_TOKEN_1"
   },
   {
@@ -23,7 +23,7 @@
   {
     "name": "AdsTags",
     "description": "Post contains advertising/ads tags",
-    "tags": ["#ads", "#announcement"],
+    "tags": ["#ads", "#announce"],
     "contains": "",
     "webhook": "https://discord.com/api/webhooks/WEBHOOK_ID_3/WEBHOOK_TOKEN_3"
   },

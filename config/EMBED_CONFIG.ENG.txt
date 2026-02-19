@@ -6,5 +6,5 @@
 
   "configErrorTitle": "Configuration Error Detected",
   "configErrorDescription": "WEBHOOK_CONFIG contains an error. Please verify your file using the template from the repository.",
-  "configErrorUrl": "https://github.com/your-repo/WEBHOOK_CONFIG.ENG.txt"
+  "configErrorUrl": "https://github.com/Hrandor-Lab/TG-to-Discord-EasyBot/blob/main/config/WEBHOOK_CONFIG.ENG.txt"
 }
