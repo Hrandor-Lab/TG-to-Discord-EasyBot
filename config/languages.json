@@ -1,0 +1,28 @@
+{
+  "RUS": {
+    "verifyPrompt": "Отправьте токен бота для верификации владельца:",
+    "verified": "✅ Верификация успешна! Репорты включены.\nИспользуйте /getreport чтобы включить, /stopreport чтобы выключить.",
+    "alreadyVerified": "Бот уже работает. Репорты: ",
+    "reportOn": "Репорты включены.",
+    "reportOff": "Репорты отключены.",
+    "unknownCommand": "Иди своей дорогой, сталкер.",
+    "help": "Команды:\n/getreport - включить репорты\n/stopreport - отключить репорты",
+    "criticalError": "❌ Критическая ошибка: ",
+    "invalidWebhookConfig": "Обнаружена ошибка конфигурации WEBHOOK_CONFIG. Пожалуйста, сверьте ваш конфиг с шаблоном в репозитории по ссылке https://github.com/Hrandor-Lab/TG-to-Discord-EasyBot/blob/main/config/WEBHOOK_CONFIG.RUS.txt",
+    "invalidEmbedConfig": "Обнаружена ошибка конфигурации EMBED_CONFIG. Пожалуйста, сверьте ваш конфиг с шаблоном в репозитории по ссылке https://github.com/Hrandor-Lab/TG-to-Discord-EasyBot/blob/main/config/EMBED_CONFIG.RUS.txt",
+    "noWebhookDefault": "Не найден вебхук Default, пропуск поста."
+  },
+  "ENG": {
+    "verifyPrompt": "Send your bot token to verify ownership:",
+    "verified": "✅ Verification successful! Reports are ON.\nUse /getreport to enable, /stopreport to disable.",
+    "alreadyVerified": "Bot is already active. Reports: ",
+    "reportOn": "Reports are now ON.",
+    "reportOff": "Reports are now OFF.",
+    "unknownCommand": "Go your own way, stalker.",
+    "help": "Commands:\n/getreport - enable error reports\n/stopreport - disable error reports",
+    "criticalError": "❌ Critical error: ",
+    "invalidWebhookConfig": "Detected an error in WEBHOOK_CONFIG. Please compare your config with the template in the repository: https://github.com/Hrandor-Lab/TG-to-Discord-EasyBot/blob/main/config/WEBHOOK_CONFIG.ENG.txt",
+    "invalidEmbedConfig": "Detected an error in EMBED_CONFIG. Please compare your config with the template in the repository: https://github.com/Hrandor-Lab/TG-to-Discord-EasyBot/blob/main/config/EMBED_CONFIG.ENG.txt",
+    "noWebhookDefault": "No Default webhook found, skipping post."
+  }
+}

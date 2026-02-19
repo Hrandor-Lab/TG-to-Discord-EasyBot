@@ -7,17 +7,17 @@
     "webhook": ""
   },
   {
-    "name": "TwitchMain",
-    "description": "Пост в канал с анонсами при наличие ссылки на канал Twitch - замените на ссылку на ваш канал",
-    "tags": [],
-    "contains": "https://www.twitch.tv/hrandor",
-    "webhook": "https://discord.com/api/webhooks/WEBHOOK_ID_1/WEBHOOK_TOKEN_1"
-  },
-  {
     "name": "NewsTags",
     "description": "Пост содержит тэг новостей",
     "tags": ["#новости", "#news"],
     "contains": "",
+    "webhook": "https://discord.com/api/webhooks/WEBHOOK_ID_1/WEBHOOK_TOKEN_1"
+  },
+  {
+    "name": "TwitchMain",
+    "description": "Пост в канал с анонсами при наличие ссылки на канал Twitch - замените на ссылку на ваш канал",
+    "tags": [],
+    "contains": "https://www.twitch.tv/hrandor",
     "webhook": "https://discord.com/api/webhooks/WEBHOOK_ID_1/WEBHOOK_TOKEN_2"
   },
   {
@@ -32,6 +32,6 @@
     "description": "Вебхук для репоста по умолчанию ВСЕГДА последний в списке",
     "tags": "",
     "contains": "",
-    "webhook": "https://discord.com/api/webhooks/WEBHOOK_ID_1/WEBHOOK_TOKEN_4"
+    "webhook": "https://discord.com/api/webhooks/YOUR_DEFAULT_WEBHOOK"
   }
 ]

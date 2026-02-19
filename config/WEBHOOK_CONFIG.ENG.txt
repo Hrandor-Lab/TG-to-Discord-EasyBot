@@ -7,18 +7,18 @@
     "webhook": ""
   },
   {
-    "name": "TwitchMain",
-    "description": "Post contains a link to the main Twitch channel",
-    "tags": [],
-    "contains": "https://www.twitch.tv/YOUR_CHANNEL",
-    "webhook": "https://discord.com/api/webhooks/WEBHOOK_ID_1/WEBHOOK_TOKEN_1"
-  },
-  {
     "name": "NewsTags",
     "description": "Post contains news tags",
     "tags": ["#news"],
     "contains": "",
-    "webhook": "https://discord.com/api/webhooks/WEBHOOK_ID_2/WEBHOOK_TOKEN_2"
+    "webhook": "https://discord.com/api/webhooks/WEBHOOK_ID_2/WEBHOOK_TOKEN_1"
+  },
+  {
+    "name": "TwitchMain",
+    "description": "Post contains a link to the main Twitch channel",
+    "tags": [],
+    "contains": "https://www.twitch.tv/YOUR_CHANNEL",
+    "webhook": "https://discord.com/api/webhooks/WEBHOOK_ID_1/WEBHOOK_TOKEN_2"
   },
   {
     "name": "AdsTags",
